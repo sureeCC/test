@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: selenium-test-pod
+  labels:
+    app: selenium-test-pod
+spec:
+  containers:
+    - name: mvn
+      image: 337873465531.dkr.ecr.eu-north-1.amazonaws.com/seleniumtest:latest
+      env:
+        - name: WEBDRIVER_REMOTE_URL
+          value: "http://10.107.156.146:4444/wd/hub"
+        - name: CHROMEOPTIONS_ARGS
+          value: "--headless"
