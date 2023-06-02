@@ -1,0 +1,5 @@
+export const permTenantView = "6ef2c342-83ec-4c02-841f-35871eb614b3"
+export const permTenantAdd = "17d3dd0a-ba4a-4bf9-b8ef-f58b1042241d"
+export const permTenantEdit = "dff290d3-4500-4328-bd35-30ca0623fd49"
+export const permTenantRegenerateApiKey = "552fdd6d-39b5-48a8-80b3-2e3d45662996"
+export const permTenantViewApiKey = "081ca112-fa3c-44f9-b633-799d0dbcbb98"

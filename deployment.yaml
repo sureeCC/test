@@ -1,0 +1,36 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: tesviz
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testviz
+  template:
+    metadata:
+      labels:
+        app: testviz
+    spec:
+      containers:
+        - name: testviz-demo
+          image: 337873465531.dkr.ecr.eu-north-1.amazonaws.com/testviz:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+      restartPolicy: Always
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+    name: testviz
+spec:
+    type: NodePort
+    ports:
+    - port: 3000
+      targetPort: 3000
+    selector:
+        app: testviz
