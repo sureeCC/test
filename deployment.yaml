@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: tesviz
+  name: testviz
 spec:
   replicas: 1
   selector:
@@ -12,16 +12,19 @@ spec:
       labels:
         app: testviz
     spec:
+      serviceAccountName: pipeline-account
       containers:
         - name: testviz-demo
           image: 337873465531.dkr.ecr.eu-north-1.amazonaws.com/testviz:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
+      imagePullSecrets:
+        - name: awsecr-cred
       restartPolicy: Always
 
----
 
+---
 
 apiVersion: v1
 kind: Service
