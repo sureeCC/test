@@ -1,14 +1,22 @@
-apiVersion: v1
-kind: Pod
+kind: Deployment
+apiVersion: apps/v1
 metadata:
-  name: selenium-test-pod
-  labels:
-    app: selenium-test-pod
+  name: testviz-test
 spec:
-  containers:
-    - name: mvn
-      image: 337873465531.dkr.ecr.eu-north-1.amazonaws.com/seleniumtest:latest
-      env:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testviz-test
+  template:
+    metadata:
+      labels:
+        app: testviz-test
+    spec:
+      serviceAccountName: pipeline-account
+      containers:
+      - name: mvn
+        image: 337873465531.dkr.ecr.eu-north-1.amazonaws.com/seleniumtest:latest
+        env:
         - name: WEBDRIVER_REMOTE_URL
           value: "http://10.107.156.146:4444/wd/hub"
         - name: CHROMEOPTIONS_ARGS
