@@ -19,8 +19,6 @@ spec:
         imagePullPolicy: Always
         env:
           - name: WEBDRIVER_REMOTE_URL
-            value: "http://10.100.87.140:4444/wd/hub"
-          - name: CHROMEOPTIONS_ARGS
-            value: "--headless"
+            value: "http://16.16.195.94:30737/wd/hub"
       imagePullSecrets:
           - name: regcred
