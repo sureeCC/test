@@ -15,7 +15,7 @@ spec:
       serviceAccountName: pipeline-account
       containers:
       - name: testviz-demo
-        image: public.ecr.aws/f9m0e7l8/publictest:latest
+        image: 337873465531.dkr.ecr.eu-north-1.amazonaws.com/testviz:latest
         imagePullPolicy: Always
         ports:
           - containerPort: 3000
